@@ -1,8 +1,9 @@
+import GlobalStyles from "@utils/GlobalStyles";
 import { StyleSheet, Text, View } from "react-native";
 
 const Home = () => {
   return (
-    <View>
+    <View style={GlobalStyles.container}>
       <Text>Home Screen</Text>
     </View>
   );

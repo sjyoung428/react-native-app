@@ -1,5 +1,5 @@
 import GlobalStyles from "@utils/GlobalStyles";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 const Home = () => {
   return (
@@ -10,5 +10,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({});

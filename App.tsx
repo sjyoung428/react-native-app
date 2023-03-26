@@ -1,7 +1,7 @@
+import Provider from "@components/Provider";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
-import Provider from "./src/components/Provider";
 
 import Home from "./src/screens/Home";
 

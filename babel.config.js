@@ -23,6 +23,8 @@ module.exports = function (api) {
             "@screens": "./src/screens",
             "@routes": "./src/routes",
             "@utils": "./src/utils",
+            "@hooks": "./src/hooks",
+            "@store": "./src/store",
           },
         },
       ],

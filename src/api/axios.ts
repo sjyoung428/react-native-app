@@ -1,3 +1,6 @@
 import axios from "axios";
+import { DUMMY_API_BASE_URL } from "@env";
 
-export const api = axios.create({});
+export const api = axios.create({
+  baseURL: DUMMY_API_BASE_URL, // https://dummyjson.com/
+});

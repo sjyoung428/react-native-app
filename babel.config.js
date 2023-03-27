@@ -30,5 +30,13 @@ module.exports = function (api) {
         },
       ],
     ],
+    env: {
+      // development: {
+      //   plugins: ["transform-react-jsx-source"],
+      // },
+      production: {
+        plugins: ["react-native-paper/babel"],
+      },
+    },
   };
 };

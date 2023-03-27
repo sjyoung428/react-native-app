@@ -1,6 +1,7 @@
 import { useCounterStore } from "@store/useCounterStore";
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text } from "react-native";
+import { Button } from "react-native-paper";
 
 const Counter = () => {
   const [count, setCount] = React.useState(0);
@@ -10,17 +11,23 @@ const Counter = () => {
     <View>
       <Text>{count}</Text>
       <Button
-        title="로컬증가"
+        mode="outlined"
         onPress={() => {
           setCount(count + 1);
         }}
-      />
+      >
+        로컬증가
+      </Button>
       <Button
-        title="글로벌증가"
+        mode="contained"
+        loading={true}
+        icon={"plus"}
         onPress={() => {
           setStoreCount();
         }}
-      />
+      >
+        글로벌증가
+      </Button>
     </View>
   );
 };

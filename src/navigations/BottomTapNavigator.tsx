@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Tap = createBottomTabNavigator();
 
-const Router = () => {
+const BottomTapNavigator = () => {
   return (
     <Tap.Navigator>
       <Tap.Screen
@@ -54,4 +54,4 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default BottomTapNavigator;

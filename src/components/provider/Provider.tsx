@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider as PaperProvider } from "react-native-paper";
+import { ToastProvider } from "react-native-toast-notifications";
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -12,7 +13,9 @@ const Provider = ({ children }: ProviderProps) => {
   return (
     <NavigationContainer>
       <QueryClientProvider client={queryClient}>
-        <PaperProvider>{children}</PaperProvider>
+        <ToastProvider>
+          <PaperProvider>{children}</PaperProvider>
+        </ToastProvider>
       </QueryClientProvider>
     </NavigationContainer>
   );

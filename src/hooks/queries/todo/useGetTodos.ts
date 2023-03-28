@@ -2,7 +2,7 @@ import { ToDoAPI } from "@api/todo.api";
 import { useQuery } from "@tanstack/react-query";
 
 const useGetTodos = () => {
-  return useQuery(getKey(), getFetcher());
+  return useQuery(useGetTodos.getKey(), useGetTodos.getFetcher());
 };
 
 const getKey = () => ["todos"];

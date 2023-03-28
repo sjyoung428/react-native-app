@@ -1,10 +1,14 @@
+import { useGetTodos } from "@hooks/queries/todo";
+import GlobalStyles from "@utils/GlobalStyles";
 import React from "react";
 import { View } from "react-native";
 import { Text } from "react-native-paper";
 
 const NotificationScreen = () => {
+  const { data, isLoading } = useGetTodos();
+  console.log(data);
   return (
-    <View>
+    <View style={GlobalStyles.container}>
       <Text>Notification Screen</Text>
     </View>
   );

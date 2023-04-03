@@ -14,4 +14,14 @@ export const AuthAPI = {
 
     return res.data;
   },
+
+  signUp: async ({ email, password }: { email: string; password: string }) => {
+    const res = await api.post("users/add", {
+      email,
+      password,
+      age: 1000,
+    });
+
+    return res.data;
+  },
 };

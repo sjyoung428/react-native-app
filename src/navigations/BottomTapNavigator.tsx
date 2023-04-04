@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AuthScreen from "@screens/AuthScreen";
 import HomeScreen from "@screens/HomeScreen";
 import NotificationScreen from "@screens/NotificationScreen";
 import ProfileScreen from "@screens/ProfileScreen";
@@ -21,7 +20,6 @@ const BottomTapNavigator = () => {
           tabBarShowLabel: false,
         }}
       />
-      <Tap.Screen name="Auth" component={AuthScreen} />
       <Tap.Screen
         name="Profile"
         component={ProfileScreen}

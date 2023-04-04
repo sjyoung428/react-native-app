@@ -1,4 +1,6 @@
 import { useLogin, useSignUp } from "@hooks/queries/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useAuthTokenStore } from "@store/useAuthTokenStore";
 import React, { useState } from "react";
 import LoginScreen from "react-native-login-screen";
 import { Text } from "react-native-paper";
@@ -6,17 +8,23 @@ import { Text } from "react-native-paper";
 const AuthScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { mutate, data, error } = useLogin();
+  const { setAuthToken } = useAuthTokenStore();
+
+  const { mutate: login, data: loginData } = useLogin({
+    onSuccess: (data) => {
+      setAuthToken(data.token);
+    },
+  });
   const { mutate: signUp, data: signUpData } = useSignUp();
 
   const handleLogin = () => {
-    mutate({ email: username, password });
+    login({ email: username, password });
   };
 
   const handleSignUp = () => {
     signUp({ email: username, password });
   };
-
+  console.log(loginData);
   console.log(signUpData);
   return (
     <LoginScreen

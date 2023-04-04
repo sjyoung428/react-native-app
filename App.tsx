@@ -1,10 +1,10 @@
 import { Provider } from "@components/provider";
-import BottomTapNavigator from "@navigations/BottomTapNavigator";
+import Navigation from "@navigations/Navigation";
 
 export default function App() {
   return (
     <Provider>
-      <BottomTapNavigator />
+      <Navigation />
     </Provider>
   );
 }

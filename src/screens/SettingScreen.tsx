@@ -1,19 +1,23 @@
 import GlobalStyles from "@utils/GlobalStyles";
-import { Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import { View } from "react-native";
-import { useEffect } from "react";
 import { useToast } from "react-native-toast-notifications";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SettingScreen = () => {
   const toast = useToast();
 
-  useEffect(() => {
-    toast.show("Setting Screen");
-  }, []);
-
   return (
     <View style={GlobalStyles.container}>
       <Text>Setting Screen</Text>
+      <Button
+        mode="outlined"
+        onPress={async () => {
+          toast.show("Setting Screen");
+        }}
+      >
+        토스트
+      </Button>
     </View>
   );
 };

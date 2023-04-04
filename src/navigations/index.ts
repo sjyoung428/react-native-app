@@ -1,1 +1,1 @@
-export { default as Router } from "./BottomTapNavigator";
+export { default as Navigation } from "./Navigation";

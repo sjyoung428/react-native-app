@@ -1,20 +1,27 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface AuthTokenStore {
   authToken: string | null;
-  setAuthToken: (authToken: string) => void;
-  removeAuthToken: () => void;
+  actions: {
+    setAuthToken: (authToken: string) => void;
+    removeAuthToken: () => void;
+  };
 }
 
-export const useAuthTokenStore = create<AuthTokenStore>((set) => ({
-  authToken: null,
-  setAuthToken: async (authToken) => {
-    set({ authToken });
-    await AsyncStorage.setItem("authToken", authToken);
-  },
-  removeAuthToken: async () => {
-    set({ authToken: null });
-    await AsyncStorage.removeItem("authToken");
-  },
-}));
+export const useAuthTokenStore = create<AuthTokenStore>()(
+  persist(
+    (set) => ({
+      authToken: null,
+      actions: {
+        setAuthToken: (authToken: string) => set({ authToken }),
+        removeAuthToken: () => set({ authToken: null }),
+      },
+    }),
+    {
+      name: "authToken",
+      storage: createJSONStorage(() => AsyncStorage),
+    }
+  )
+);

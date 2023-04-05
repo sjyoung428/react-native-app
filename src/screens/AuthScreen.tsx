@@ -9,9 +9,7 @@ import {} from "react-native-paper";
 const AuthScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {
-    actions: { setAuthToken },
-  } = useAuthTokenStore();
+  const { setAuthToken } = useAuthTokenStore();
 
   const { mutate: login, data: loginData } = useLogin({
     onSuccess: (data) => {

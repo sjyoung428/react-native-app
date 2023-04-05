@@ -7,10 +7,7 @@ import { Text, View } from "react-native";
 import { Button } from "react-native-paper";
 
 const HomeScreen = () => {
-  const {
-    authToken,
-    actions: { removeAuthToken },
-  } = useAuthTokenStore();
+  const { authToken, removeAuthToken } = useAuthTokenStore();
 
   const onLogout = () => {
     // 로그아웃 처리

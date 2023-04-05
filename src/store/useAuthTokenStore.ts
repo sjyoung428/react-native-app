@@ -4,20 +4,19 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 interface AuthTokenStore {
   authToken: string | null;
-  actions: {
-    setAuthToken: (authToken: string) => void;
-    removeAuthToken: () => void;
-  };
+
+  setAuthToken: (authToken: string) => void;
+
+  removeAuthToken: () => void;
 }
 
 export const useAuthTokenStore = create<AuthTokenStore>()(
   persist(
     (set) => ({
       authToken: null,
-      actions: {
-        setAuthToken: (authToken: string) => set({ authToken }),
-        removeAuthToken: () => set({ authToken: null }),
-      },
+
+      setAuthToken: (authToken: string) => set({ authToken }),
+      removeAuthToken: () => set({ authToken: null }),
     }),
     {
       name: "authToken",

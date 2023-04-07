@@ -4,8 +4,9 @@ import NotificationScreen from "@screens/NotificationScreen";
 import ProfileScreen from "@screens/ProfileScreen";
 import SettingScreen from "@screens/SettingScreen";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { BottomTabParamList } from "./types";
 
-const Tap = createBottomTabNavigator();
+const Tap = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTapNavigator = () => {
   return (

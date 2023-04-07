@@ -1,13 +1,8 @@
 import { AuthAPI } from "@api/auth.api";
-import {
-  UseMutateFunction,
-  useMutation,
-  UseMutationOptions,
-} from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { UseMutationOptionsOf } from "../types";
 
-const useLogin = (
-  options?: Omit<UseMutationOptions<any, Error, any, any>, "mutationFn">
-) => {
+const useLogin = (options: UseMutationOptionsOf<typeof AuthAPI.login> = {}) => {
   return useMutation(AuthAPI.login, options);
 };
 

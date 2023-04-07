@@ -1,5 +1,6 @@
 import { ValidInput } from "@components/common";
-import { TouchableButton } from "@components/common/TouchableButton";
+import { TouchableButton } from "@components/common";
+import { useLogin } from "@hooks/queries/auth";
 import GlobalStyles from "@utils/styles/GlobalStyles";
 import { validator } from "@utils/validator";
 import { useState } from "react";
@@ -8,6 +9,15 @@ import { View } from "react-native";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { mutate } = useLogin({
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
+
+  const onPressLogin = () => {
+    mutate({ email, password });
+  };
 
   return (
     <View style={GlobalStyles.container}>
@@ -26,7 +36,7 @@ const LoginScreen = () => {
         errorMessage="비밀번호를 올바르게 입력하시오"
       />
 
-      <TouchableButton>Login</TouchableButton>
+      <TouchableButton onPress={onPressLogin}>Login</TouchableButton>
     </View>
   );
 };

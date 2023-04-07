@@ -27,7 +27,10 @@ const ValidInput = ({
         onChangeText={onChangeText}
         secureTextEntry={type === "password"}
       />
-      <HelperText type="error" visible={validator(value)}>
+      <HelperText
+        type="error"
+        visible={value.length === 0 ? false : validator(value)}
+      >
         {errorMessage}
       </HelperText>
     </>

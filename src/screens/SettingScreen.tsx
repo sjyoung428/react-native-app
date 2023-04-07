@@ -11,7 +11,7 @@ const SettingScreen = () => {
       <Text>Setting Screen</Text>
       <Button
         mode="outlined"
-        onPress={async () => {
+        onPress={() => {
           toast.show("Setting Screen");
         }}
       >

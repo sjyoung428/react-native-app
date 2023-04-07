@@ -1,5 +1,3 @@
-import { Counter } from "@components/counter";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAuthTokenStore } from "@store/useAuthTokenStore";
 import { useCounterStore } from "@store/useCounterStore";
 import GlobalStyles from "@utils/GlobalStyles";

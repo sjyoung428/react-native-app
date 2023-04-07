@@ -1,6 +1,6 @@
 import React from "react";
+import { StyleSheet } from "react-native";
 import { HelperText, TextInput } from "react-native-paper";
-import { ValidInputStyles } from "./ValidInput.styles";
 
 interface ValidInputProps {
   type: "email" | "password" | "username";
@@ -21,7 +21,7 @@ const ValidInput = ({
     <>
       <TextInput
         mode="outlined"
-        style={ValidInputStyles.input}
+        style={styles.input}
         label={type}
         value={value}
         onChangeText={onChangeText}
@@ -35,3 +35,9 @@ const ValidInput = ({
 };
 
 export default ValidInput;
+
+export const styles = StyleSheet.create({
+  input: {
+    width: "80%",
+  },
+});

@@ -1,9 +1,8 @@
 import { ValidInput } from "@components/common";
 import { TouchableButton } from "@components/common/TouchableButton";
-import GlobalStyles from "@utils/GlobalStyles";
+import GlobalStyles from "@utils/styles/GlobalStyles";
 import { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
-import { Button } from "react-native-paper";
+import { View } from "react-native";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");

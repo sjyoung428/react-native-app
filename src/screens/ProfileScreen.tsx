@@ -1,4 +1,4 @@
-import GlobalStyles from "@utils/GlobalStyles";
+import GlobalStyles from "@utils/styles/GlobalStyles";
 import React from "react";
 import { View } from "react-native";
 import { Text } from "react-native-paper";

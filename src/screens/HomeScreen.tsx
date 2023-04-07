@@ -1,6 +1,5 @@
 import { useAuthTokenStore } from "@store/useAuthTokenStore";
-import { useCounterStore } from "@store/useCounterStore";
-import GlobalStyles from "@utils/GlobalStyles";
+import GlobalStyles from "@utils/styles/GlobalStyles";
 import { Text, View } from "react-native";
 import { Button } from "react-native-paper";
 

@@ -1,6 +1,6 @@
 import * as EmailValidator from "email-validator";
 
-type ValidatorType = "email" | "password";
+type ValidatorType = "email" | "password" | "username";
 
 export const validator = (text: string, type: ValidatorType) => {
   if (type === "email") {
@@ -9,6 +9,10 @@ export const validator = (text: string, type: ValidatorType) => {
 
   if (type === "password") {
     return text.length >= 8;
+  }
+
+  if (type === "username") {
+    return text.length >= 2;
   }
 
   return false;

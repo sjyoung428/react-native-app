@@ -22,7 +22,7 @@ const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const { mutate } = useSignUp({
     onSuccess: () => {
       toast.show("회원가입 성공");
-      navigation.navigate("Login");
+      navigation.goBack();
     },
   });
 
@@ -64,11 +64,8 @@ const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         validator={() => !passwordValidation}
         errorMessage="8글자 이상"
       />
-      <TouchableButton onPress={onPressSignUp}>Login</TouchableButton>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={() => navigation.navigate("Login")}
-      >
+      <TouchableButton onPress={onPressSignUp}>Sign up</TouchableButton>
+      <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
         <Text
           variant="bodyMedium"
           style={{

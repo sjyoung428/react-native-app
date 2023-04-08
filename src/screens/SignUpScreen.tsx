@@ -1,4 +1,4 @@
-import { ValidInput } from "@components/common";
+import { TouchableText, ValidInput } from "@components/common";
 import { TouchableButton } from "@components/common";
 import { useSignUp } from "@hooks/queries/auth";
 import { RootStackParamList } from "@navigations/types";
@@ -7,8 +7,7 @@ import { colors } from "@utils/styles/colors";
 import GlobalStyles from "@utils/styles/GlobalStyles";
 import { validator } from "@utils/validator";
 import { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
-import { Text } from "react-native-paper";
+import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
 interface SignUpScreenProps
@@ -65,17 +64,12 @@ const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         errorMessage="8글자 이상"
       />
       <TouchableButton onPress={onPressSignUp}>Sign up</TouchableButton>
-      <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.goBack()}>
-        <Text
-          variant="bodyMedium"
-          style={{
-            marginTop: 20,
-            color: colors.gray7,
-          }}
-        >
-          go to login
-        </Text>
-      </TouchableOpacity>
+      <TouchableText
+        style={{ marginTop: 20, color: colors.gray7 }}
+        onPress={() => navigation.goBack()}
+      >
+        Already have an account?
+      </TouchableText>
     </View>
   );
 };

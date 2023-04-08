@@ -1,4 +1,4 @@
-import { ValidInput } from "@components/common";
+import { TouchableText, ValidInput } from "@components/common";
 import { TouchableButton } from "@components/common";
 import { useLogin } from "@hooks/queries/auth";
 import { RootStackParamList } from "@navigations/types";
@@ -8,8 +8,7 @@ import { colors } from "@utils/styles/colors";
 import GlobalStyles from "@utils/styles/GlobalStyles";
 import { validator } from "@utils/validator";
 import { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
-import { Text } from "react-native-paper";
+import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
 interface LoginScreenProps extends NativeStackScreenProps<RootStackParamList> {}
@@ -56,17 +55,12 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
         errorMessage="비밀번호를 올바르게 입력하시오"
       />
       <TouchableButton onPress={onPressLogin}>Login</TouchableButton>
-      <TouchableOpacity onPress={onPressAccount} activeOpacity={0.5}>
-        <Text
-          variant="bodyMedium"
-          style={{
-            marginTop: 20,
-            color: colors.gray7,
-          }}
-        >
-          Create an account
-        </Text>
-      </TouchableOpacity>
+      <TouchableText
+        style={{ marginTop: 20, color: colors.gray7 }}
+        onPress={onPressAccount}
+      >
+        Create an account
+      </TouchableText>
     </View>
   );
 };

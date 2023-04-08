@@ -1,5 +1,5 @@
 import { AuthAPI } from "@api/auth.api";
-import { useMutation, UseMutationOptions } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { UseMutationOptionsOf } from "../types";
 
 const useSignUp = (

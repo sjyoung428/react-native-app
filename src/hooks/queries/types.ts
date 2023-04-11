@@ -6,6 +6,9 @@ import type {
 } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
+// (...args: any) => Promise<ReturnType<TAPI>>
+// (args: Pick<AxiosRequestConfig<any>, "data">) => Promise<ReturnType<TAPI>>
+
 export type UseQueryOptionsOf<
   TAPI extends (...args: any) => ReturnType<TAPI>,
   TQueryKey extends QueryKey = QueryKey

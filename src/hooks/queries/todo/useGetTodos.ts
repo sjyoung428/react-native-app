@@ -2,7 +2,9 @@ import { ToDoAPI } from "@api/todo.api";
 import { useQuery } from "@tanstack/react-query";
 import { UseQueryOptionsOf } from "../types";
 
-const useGetTodos = (options: UseQueryOptionsOf<typeof getFetcher> = {}) => {
+const useGetTodos = (
+  options: UseQueryOptionsOf<typeof getFetcher, string[]> = {}
+) => {
   return useQuery(getKey(), getFetcher(), options);
 };
 

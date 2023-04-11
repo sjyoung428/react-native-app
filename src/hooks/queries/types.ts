@@ -1,16 +1,19 @@
-import {
+import type {
+  QueryKey,
   UseQueryOptions,
-  type UseMutationOptions,
+  UseMutationOptions,
 } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-export type UseQueryOptionsOf<TAPI extends (...args: any) => any> =
-  UseQueryOptions<
-    Awaited<ReturnType<TAPI>>,
-    AxiosError,
-    Awaited<ReturnType<TAPI>>,
-    string[]
-  >;
+export type UseQueryOptionsOf<
+  TAPI extends (...args: any) => any,
+  TQueryKey extends QueryKey = QueryKey
+> = UseQueryOptions<
+  Awaited<ReturnType<TAPI>>,
+  AxiosError,
+  Awaited<ReturnType<TAPI>>,
+  TQueryKey
+>;
 
 export type UseMutationOptionsOf<TAPI extends (...args: any) => any> =
   UseMutationOptions<

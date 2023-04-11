@@ -1,4 +1,5 @@
 import type {
+  QueryFunction,
   QueryKey,
   UseQueryOptions,
   UseMutationOptions,
@@ -6,7 +7,7 @@ import type {
 import { AxiosError } from "axios";
 
 export type UseQueryOptionsOf<
-  TAPI extends (...args: any) => any,
+  TAPI extends (...args: any) => ReturnType<TAPI>,
   TQueryKey extends QueryKey = QueryKey
 > = UseQueryOptions<
   Awaited<ReturnType<TAPI>>,
@@ -15,9 +16,10 @@ export type UseQueryOptionsOf<
   TQueryKey
 >;
 
-export type UseMutationOptionsOf<TAPI extends (...args: any) => any> =
-  UseMutationOptions<
-    Awaited<ReturnType<TAPI>>,
-    AxiosError,
-    Parameters<TAPI>[0] extends undefined ? void : Parameters<TAPI>[0]
-  >;
+export type UseMutationOptionsOf<
+  TAPI extends (...args: any) => Promise<ReturnType<TAPI>> // any 어떻게 지우지;;
+> = UseMutationOptions<
+  Awaited<ReturnType<TAPI>>,
+  AxiosError,
+  Parameters<TAPI>[0] extends undefined ? void : Parameters<TAPI>[0]
+>;

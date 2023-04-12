@@ -1,11 +1,11 @@
-import { TouchableText, ValidInput } from "@components/common";
-import { TouchableButton } from "@components/common";
-import { useSignUp } from "@hooks/queries/auth";
-import { RootStackParamList } from "@navigations/types";
+import { TouchableText, ValidInput } from "@/components/common";
+import { TouchableButton } from "@/components/common";
+import { useSignUp } from "@/hooks/queries/auth";
+import { RootStackParamList } from "@/navigations/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { colors } from "@utils/styles/colors";
-import GlobalStyles from "@utils/styles/GlobalStyles";
-import { validator } from "@utils/validator";
+import { colors } from "@/utils/styles/colors";
+import GlobalStyles from "@/utils/styles/GlobalStyles";
+import { validator } from "@/utils/validator";
 import { useState } from "react";
 import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";

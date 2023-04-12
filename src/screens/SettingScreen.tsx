@@ -1,9 +1,9 @@
-import GlobalStyles from "@utils/styles/GlobalStyles";
+import GlobalStyles from "@/utils/styles/GlobalStyles";
 import { Text } from "react-native-paper";
 import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
-import { TouchableText } from "@components/common";
-import { useAuthTokenStore } from "@store/useAuthTokenStore";
+import { TouchableText } from "@/components/common";
+import { useAuthTokenStore } from "@/store/useAuthTokenStore";
 
 const SettingScreen = () => {
   const toast = useToast();

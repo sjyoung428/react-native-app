@@ -3,24 +3,22 @@ import type {
   UseQueryOptions,
   UseMutationOptions,
 } from "@tanstack/react-query";
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 
 export type UseQueryOptionsOf<
-  TAPI extends (args: Parameters<TAPI>[0]) => ReturnType<TAPI>,
-  TQueryKey extends (args?: Parameters<TQueryKey>[0]) => QueryKey
+  TAPI extends (...args: any) => any,
+  TQueryKey extends (args: Parameters<TQueryKey>[0]) => QueryKey
 > = UseQueryOptions<
-  AxiosResponse<TAPI>,
+  Awaited<ReturnType<TAPI>>,
   AxiosError,
-  AxiosResponse<TAPI>,
+  Awaited<ReturnType<TAPI>>,
   ReturnType<TQueryKey>
 >;
 
 export type UseMutationOptionsOf<
   TAPI extends (args: Parameters<TAPI>[0]) => Promise<ReturnType<TAPI>>
 > = UseMutationOptions<
-  AxiosResponse<TAPI>,
+  Awaited<ReturnType<TAPI>>,
   AxiosError,
   Parameters<TAPI>[0] extends undefined ? void : Parameters<TAPI>[0]
 >;
-
-type a<T> = AxiosRequestConfig<T>;

@@ -1,4 +1,4 @@
-import { useAuthTokenStore } from "@store/useAuthTokenStore";
+import { useAuthTokenStore } from "@/store/useAuthTokenStore";
 import BottomTapNavigator from "./BottomTapNavigator";
 import StackNavigator from "./StackNavigator";
 

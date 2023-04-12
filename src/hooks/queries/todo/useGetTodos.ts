@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { UseQueryOptionsOf } from "../types";
 
 const useGetTodos = (
-  options: UseQueryOptionsOf<typeof getFetcher, string[]> = {}
+  options: UseQueryOptionsOf<typeof getFetcher, typeof getKey> = {}
 ) => {
   return useQuery(getKey(), getFetcher(), options);
 };

@@ -1,16 +1,12 @@
 import type {
-  QueryFunction,
   QueryKey,
   UseQueryOptions,
   UseMutationOptions,
 } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 
-// (...args: any) => Promise<ReturnType<TAPI>>
-// (args: Pick<AxiosRequestConfig<any>, "data">) => Promise<ReturnType<TAPI>>
-
 export type UseQueryOptionsOf<
-  TAPI extends (...args: any) => ReturnType<TAPI>,
+  TAPI extends (args: Parameters<TAPI>[0]) => ReturnType<TAPI>,
   TQueryKey extends QueryKey = QueryKey
 > = UseQueryOptions<
   Awaited<ReturnType<TAPI>>,
@@ -20,7 +16,7 @@ export type UseQueryOptionsOf<
 >;
 
 export type UseMutationOptionsOf<
-  TAPI extends (...args: any) => Promise<ReturnType<TAPI>> // any 어떻게 지우지;;
+  TAPI extends (args: Parameters<TAPI>[0]) => Promise<ReturnType<TAPI>>
 > = UseMutationOptions<
   Awaited<ReturnType<TAPI>>,
   AxiosError,

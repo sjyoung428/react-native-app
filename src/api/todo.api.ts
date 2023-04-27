@@ -1,14 +1,15 @@
+import { AxiosResponse } from "axios";
 import { api } from "./axios";
 import type { Todo } from "@/types/todo";
 
 export const ToDoAPI = {
-  getAll: async <T = Todo[]>(): Promise<T> => {
-    const res = await api.get<T>("todos");
+  getAll: async () => {
+    const res: AxiosResponse<Todo[]> = await api.get("todos");
     return res.data;
   },
 
-  getById: async <T = Todo>(id: string): Promise<T> => {
-    const res = await api.get<T>(`todos/${id}`);
+  getById: async (id: string) => {
+    const res: AxiosResponse<Todo> = await api.get(`todos/${id}`);
     return res.data;
   },
 
@@ -21,7 +22,11 @@ export const ToDoAPI = {
     completed: boolean;
     userId: string;
   }) => {
-    const res = await api.post("todos/add", { title, completed, userId });
+    const res: AxiosResponse<Todo> = await api.post("todos/add", {
+      title,
+      completed,
+      userId,
+    });
     return res.data;
   },
 };

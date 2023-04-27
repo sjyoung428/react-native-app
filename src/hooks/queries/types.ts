@@ -3,7 +3,7 @@ import type {
   UseQueryOptions,
   UseMutationOptions,
 } from "@tanstack/react-query";
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 
 export type UseQueryOptionsOf<
   TAPI extends (...args: any) => any,
@@ -16,7 +16,7 @@ export type UseQueryOptionsOf<
 >;
 
 export type UseMutationOptionsOf<
-  TAPI extends (args: Parameters<TAPI>[0]) => Promise<ReturnType<TAPI>>
+  TAPI extends (args: Parameters<TAPI>[0]) => ReturnType<TAPI>
 > = UseMutationOptions<
   Awaited<ReturnType<TAPI>>,
   AxiosError,

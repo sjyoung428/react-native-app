@@ -19,8 +19,9 @@ const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [password, setPassword] = useState("");
   const toast = useToast();
   const { mutate } = useSignUp({
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast.show("회원가입 성공");
+      console.log(data);
       navigation.goBack();
     },
   });

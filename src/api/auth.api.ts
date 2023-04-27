@@ -21,11 +21,10 @@ export const AuthAPI = {
     password: string;
     username: string;
   }) => {
-    const res: AxiosResponse<void> = await api.post("users/add", {
+    const res: AxiosResponse<void> = await api.post("signup", {
       email,
       password,
       username,
-      age: 1000,
     });
 
     return res.data;

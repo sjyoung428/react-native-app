@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { api } from "./axios";
+import { api } from "./axios.instance";
 import type { User } from "@/types/user";
 
 export const AuthAPI = {

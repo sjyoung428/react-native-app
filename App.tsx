@@ -1,5 +1,5 @@
-import { Provider } from "@components/provider";
-import Navigation from "@navigations/Navigation";
+import { Provider } from "src/provider";
+import Navigation from "src/navigations/Navigation";
 
 export default function App() {
   return (

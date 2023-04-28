@@ -6,6 +6,7 @@ import type {
 import type { AxiosError } from "axios";
 
 export type UseQueryOptionsOf<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   TAPI extends (...args: any) => any,
   TQueryKey extends (args: Parameters<TQueryKey>[0]) => QueryKey
 > = UseQueryOptions<

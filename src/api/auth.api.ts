@@ -4,9 +4,9 @@ import type { User } from "@/types/user";
 
 export const AuthAPI = {
   login: async ({ email, password }: { email: string; password: string }) => {
-    const res: AxiosResponse<User> = await api.post("auth/login", {
-      username: "kminchelle",
-      password: "0lelplR",
+    const res: AxiosResponse<User> = await api.post("signin", {
+      email,
+      password,
     });
 
     return res.data;
@@ -21,7 +21,7 @@ export const AuthAPI = {
     password: string;
     username: string;
   }) => {
-    const res: AxiosResponse<void> = await api.post("signup", {
+    const res: AxiosResponse<{ message: string }> = await api.post("signup", {
       email,
       password,
       username,

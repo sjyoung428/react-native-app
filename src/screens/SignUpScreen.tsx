@@ -10,7 +10,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
-type SignUpScreenProps = NativeStackScreenProps<RootStackParamList>
+type SignUpScreenProps = NativeStackScreenProps<RootStackParamList>;
 
 const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [email, setEmail] = useState("");
@@ -18,9 +18,8 @@ const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   const [password, setPassword] = useState("");
   const toast = useToast();
   const { mutate } = useSignUp({
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.show("회원가입 성공");
-      console.log(data);
       navigation.goBack();
     },
   });

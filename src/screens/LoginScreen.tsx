@@ -11,7 +11,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
-type LoginScreenProps = NativeStackScreenProps<RootStackParamList>
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList>;
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 import { ToDoAPI } from "@/api/todo.api";
 import { useQuery } from "@tanstack/react-query";
-import { UseQueryOptionsOf } from "../types";
+import type { UseQueryOptionsOf } from "../types";
 
 const useGetTodoById = (
   id: string,

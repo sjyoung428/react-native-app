@@ -1,9 +1,10 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import { MD3TypescaleKey, Text } from "react-native-paper";
-import { Props as TextProps } from "react-native-paper/lib/typescript/src/components/Typography/Text";
+import type { MD3TypescaleKey} from "react-native-paper";
+import { Text } from "react-native-paper";
+import type { Props as TextProps } from "react-native-paper/lib/typescript/src/components/Typography/Text";
 
-interface TouchableTextProps extends TextProps<MD3TypescaleKey> {}
+type TouchableTextProps = TextProps<MD3TypescaleKey>
 
 const TouchableText = ({
   children,

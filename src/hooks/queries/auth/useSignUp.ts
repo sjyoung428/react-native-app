@@ -1,6 +1,6 @@
 import { AuthAPI } from "@/api/auth.api";
 import { useMutation } from "@tanstack/react-query";
-import { UseMutationOptionsOf } from "../types";
+import type { UseMutationOptionsOf } from "../types";
 
 const useSignUp = (
   options: UseMutationOptionsOf<typeof AuthAPI.signUp> = {}

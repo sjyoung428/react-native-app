@@ -1,8 +1,8 @@
 import { TouchableText, ValidInput } from "@/components/common";
 import { TouchableButton } from "@/components/common";
 import { useLogin } from "@/hooks/queries/auth";
-import { RootStackParamList } from "@/navigations/types";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "@/navigations/types";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useAuthTokenStore } from "@/store/useAuthTokenStore";
 import { colors } from "@/utils/styles/colors";
 import GlobalStyles from "@/utils/styles/GlobalStyles";
@@ -11,7 +11,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
-interface LoginScreenProps extends NativeStackScreenProps<RootStackParamList> {}
+type LoginScreenProps = NativeStackScreenProps<RootStackParamList>
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const [email, setEmail] = useState("");

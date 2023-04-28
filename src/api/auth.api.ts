@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
 import { api } from "./axios.instance";
 import type { User } from "@/types/user";
 

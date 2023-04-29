@@ -4,13 +4,15 @@ import type { Article } from "@/types/article";
 // import type { Article } from "@/types/article";
 
 export const ArticleAPI = {
-  getAll: async () => {
-    const res: AxiosResponse<Article[]> = await api.get("article");
+  getAll: async (userId: string) => {
+    const res: AxiosResponse<Article[]> = await api.get(`article/${userId}`);
     return res.data;
   },
 
-  getById: async (id: string) => {
-    const res: AxiosResponse<Article> = await api.get(`article/${id}`);
+  getById: async ({ userId, id }: { userId: string; id: string }) => {
+    const res: AxiosResponse<Article> = await api.get(
+      `article/${userId}/${id}`
+    );
     return res.data;
   },
 

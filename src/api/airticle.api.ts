@@ -5,7 +5,7 @@ import type { Article } from "@/types/article";
 
 export const ArticleAPI = {
   getAll: async () => {
-    const res: AxiosResponse<Article[]> = await api.get("articles/");
+    const res: AxiosResponse<Article[]> = await api.get("articles");
     return res.data;
   },
 

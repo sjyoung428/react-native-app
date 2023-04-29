@@ -1,22 +1,21 @@
 import type { AxiosResponse } from "axios";
 import { api } from "./axios.instance";
-import type { Article } from "@/types/article";
-// import type { Article } from "@/types/article";
+import type { Post } from "@/types/post";
 
-export const ArticleAPI = {
+export const PostAPI = {
   getAll: async () => {
-    const res: AxiosResponse<Article[]> = await api.get("articles");
+    const res: AxiosResponse<Post[]> = await api.get("posts");
     return res.data;
   },
 
   getById: async (id: string) => {
-    const res: AxiosResponse<Article> = await api.get(`articles/${id}`);
+    const res: AxiosResponse<Post> = await api.get(`post/${id}`);
     return res.data;
   },
 
   create: async (formData: FormData) => {
     const res: AxiosResponse<{ message: string }> = await api.post(
-      "article/add",
+      "post/create",
       formData
     );
     return res.data;

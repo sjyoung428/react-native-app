@@ -9,9 +9,8 @@ const useArticleById = (
   return useQuery(getKey(id), getFetcher(id), options);
 };
 
-const getKey = (id: string) => ["todos", id];
-const getFetcher = (id: string) => async () =>
-  await ArticleAPI.getById({ userId: "1", id });
+const getKey = (id: string) => ["article", id];
+const getFetcher = (id: string) => async () => await ArticleAPI.getById(id);
 
 useArticleById.getKey = getKey;
 useArticleById.getFetcher = getFetcher;

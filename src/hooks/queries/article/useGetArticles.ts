@@ -3,14 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import type { UseQueryOptionsOf } from "../types";
 
 const useGetArticles = (
-  userId: string,
   options: UseQueryOptionsOf<typeof ArticleAPI.getAll, typeof getKey> = {}
 ) => {
-  return useQuery(getKey(), getFetcher(userId), options);
+  return useQuery(getKey(), getFetcher(), options);
 };
 
-const getKey = () => ["todos"];
-const getFetcher = (id: string) => async () => await ArticleAPI.getAll(id);
+const getKey = () => ["articles"];
+const getFetcher = () => async () => await ArticleAPI.getAll();
 
 useGetArticles.getKey = getKey;
 useGetArticles.getFetcher = getFetcher;

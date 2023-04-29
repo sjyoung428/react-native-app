@@ -1,5 +1,3 @@
-import type { User } from "./user";
-
 export interface Article {
   id: number;
   title: string;
@@ -7,5 +5,5 @@ export interface Article {
   body: string;
   date: Date;
   image: string;
-  user: User;
+  userId: number;
 }

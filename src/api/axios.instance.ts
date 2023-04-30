@@ -16,3 +16,8 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+// export const jsonApi = axios.create({
+//   baseURL: REACT_APP_JSON_URL,
+//   withCredentials: true,
+// });

@@ -4,18 +4,18 @@ import type { Post } from "@/types/post";
 
 export const PostAPI = {
   getAll: async () => {
-    const res: AxiosResponse<Post[]> = await api.get("posts");
+    const res: AxiosResponse<{ posts: Post[] }> = await api.get("/posts");
     return res.data;
   },
 
   getById: async (id: string) => {
-    const res: AxiosResponse<Post> = await api.get(`post/${id}`);
+    const res: AxiosResponse<Post> = await api.get(`/posts/${id}`);
     return res.data;
   },
 
   create: async (formData: FormData) => {
     const res: AxiosResponse<{ message: string }> = await api.post(
-      "post/create",
+      "posts/create",
       formData
     );
     return res.data;

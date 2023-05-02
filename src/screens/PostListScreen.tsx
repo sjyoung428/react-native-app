@@ -1,7 +1,7 @@
 import PostList from "@/components/PostList";
 
-const PostScreen = () => {
+const PostListScreen = () => {
   return <PostList />;
 };
 
-export default PostScreen;
+export default PostListScreen;

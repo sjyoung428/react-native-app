@@ -5,7 +5,7 @@ import ProfileScreen from "@/screens/ProfileScreen";
 import SettingScreen from "@/screens/SettingScreen";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import type { BottomTabParamList } from "./types";
-import PostScreen from "@/screens/PostScreen";
+import PostListScreen from "@/screens/PostListScreen";
 
 const Tap = createBottomTabNavigator<BottomTabParamList>();
 
@@ -33,11 +33,11 @@ const BottomTapNavigator = () => {
         }}
       />
       <Tap.Screen
-        name="Post"
-        component={PostScreen}
+        name="Posts"
+        component={PostListScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="note" color={color} size={size} />
+            <Icon name="post" color={color} size={size} />
           ),
           tabBarShowLabel: false,
         }}

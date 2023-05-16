@@ -7,18 +7,13 @@ import {
   TouchableText,
   ValidInput,
 } from "@/components/common";
-import {
-  emailValidator,
-  passwordValidator,
-  usernameValidator,
-} from "@/utils/validator";
+import { emailValidator, passwordValidator } from "@/utils/validator";
 import { useToast } from "react-native-toast-notifications";
 import { useAuthTokenStore } from "@/store/useAuthTokenStore";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
   const toast = useToast();
 
@@ -46,7 +41,7 @@ const AuthForm = () => {
 
   const handleAuth = () => {
     if (isSignUp) {
-      signUp({ email, password, username });
+      signUp({ email, password });
     } else {
       login({ email, password });
     }
@@ -55,15 +50,6 @@ const AuthForm = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{isSignUp ? "Sign Up" : "Login"}</Text>
-      {isSignUp && (
-        <ValidInput
-          type="username"
-          onChangeText={setUsername}
-          value={username}
-          validator={() => !usernameValidator(username)}
-          errorMessage="2 글자 이상"
-        />
-      )}
       <ValidInput
         type="email"
         onChangeText={setEmail}

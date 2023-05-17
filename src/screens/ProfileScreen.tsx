@@ -1,21 +1,61 @@
-import { TouchableText } from "@/components/common";
-import { useGetMe } from "@/hooks/queries/user";
+import { Loader, TouchableText, ValidInput } from "@/components/common";
+import { useGetMe, useUpdateMe } from "@/hooks/queries/user";
 import { useAuthTokenStore } from "@/store/useAuthTokenStore";
 import GlobalStyles from "@/utils/styles/GlobalStyles";
-import React from "react";
+import { usernameValidator } from "@/utils/validator";
+import { useQueryClient } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { View } from "react-native";
-import { Text } from "react-native-paper";
+import { Button, Text } from "react-native-paper";
 import { useToast } from "react-native-toast-notifications";
 
 const ProfileScreen = () => {
+  const [isChange, setIsChange] = useState(false);
+  const [username, setUsername] = useState("");
   const { data, isLoading } = useGetMe();
+  const queryClient = useQueryClient();
+  const { mutate: changeUsername } = useUpdateMe({
+    onSuccess: async () => {
+      await queryClient.refetchQueries(useGetMe.getKey());
+      toast.show("닉네임 변경 성공");
+      setIsChange(false);
+    },
+  });
 
   const toast = useToast();
   const { removeAuthToken } = useAuthTokenStore();
+
+  const onPressChange = () => {
+    changeUsername({ username });
+  };
+
+  if (isLoading || !data) {
+    return (
+      <View style={GlobalStyles.container}>
+        <Text>Profile Screen</Text>
+        <Loader />
+      </View>
+    );
+  }
+
   return (
     <View style={GlobalStyles.container}>
-      <Text>Profile Screen</Text>
-      <Text>{isLoading ? "로딩중" : data?.email}</Text>
+      {isChange ? (
+        <ValidInput
+          type="username"
+          value={username}
+          validator={() => !usernameValidator(username)}
+          onChangeText={setUsername}
+          errorMessage="두 글자 이상"
+        />
+      ) : (
+        <Text>닉네임: {data.username}</Text>
+      )}
+      <Button onPress={() => setIsChange((prev) => !prev)}>
+        {isChange ? "취소" : "변경하기"}
+      </Button>
+      {isChange && <Button onPress={onPressChange}>변경하기</Button>}
+      <Text>이메일: {data.email}</Text>
       <TouchableText
         onPress={() => {
           removeAuthToken();

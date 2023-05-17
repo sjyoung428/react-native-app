@@ -10,14 +10,16 @@ export const api = axios.create({
 
 api.interceptors.request.use(
   async (config) => {
-    const authToken = await AsyncStorage.getItem("authToken");
+    let authToken = "";
+
+    const getToken = await AsyncStorage.getItem("authToken");
+
+    if (getToken) {
+      authToken = JSON.parse(getToken).state.authToken;
+    }
+
     config.headers.authorization = authToken ? `Bearer ${authToken}` : "";
     return config;
   },
   (error) => Promise.reject(error)
 );
-
-// export const jsonApi = axios.create({
-//   baseURL: REACT_APP_JSON_URL,
-//   withCredentials: true,
-// });

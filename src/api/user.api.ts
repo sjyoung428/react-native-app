@@ -7,4 +7,11 @@ export const UserAPI = {
     const res: AxiosResponse<User> = await api("/user/me");
     return res.data;
   },
+
+  updateMe: async (username: string) => {
+    const res: AxiosResponse<User> = await api.patch("/user/me", {
+      username,
+    });
+    return res.data;
+  },
 };

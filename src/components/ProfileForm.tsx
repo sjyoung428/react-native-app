@@ -14,6 +14,7 @@ const ProfileForm = () => {
   const [username, setUsername] = useState("");
   const { data, isLoading } = useGetMe();
   const queryClient = useQueryClient();
+
   const { mutate: changeUsername } = useUpdateMe({
     onSuccess: async () => {
       await queryClient.refetchQueries(useGetMe.getKey());

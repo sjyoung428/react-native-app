@@ -9,7 +9,7 @@ export const UserAPI = {
   },
 
   updateMe: async ({ username }: { username: string }) => {
-    const res: AxiosResponse<User> = await api.patch("/user/me", {
+    const res: AxiosResponse<User> = await api.patch("/users/me", {
       username,
     });
     return res.data;

@@ -4,7 +4,7 @@ import type { User } from "@/types/user";
 
 export const UserAPI = {
   getMe: async () => {
-    const res: AxiosResponse<User> = await api("/user/me");
+    const res: AxiosResponse<User> = await api("/users/me");
     return res.data;
   },
 

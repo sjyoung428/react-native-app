@@ -1,6 +1,6 @@
 import { TouchableButton } from "@/components/common";
 import GlobalStyles from "@/utils/styles/GlobalStyles";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import useFeed from "@/hooks/queries/feed/useFeed";
 
 const HomeScreen = () => {
@@ -15,7 +15,6 @@ const HomeScreen = () => {
   };
   return (
     <View style={GlobalStyles.container}>
-      <Text>Home Screen</Text>
       <TouchableButton onPress={onPress}>사료 사출 버튼</TouchableButton>
     </View>
   );

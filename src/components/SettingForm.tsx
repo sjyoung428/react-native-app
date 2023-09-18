@@ -9,7 +9,7 @@ import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import { useToast } from "react-native-toast-notifications";
 
-const ProfileForm = () => {
+const SettingForm = () => {
   const [isChange, setIsChange] = useState(false);
   const [username, setUsername] = useState("");
   const { data, isLoading } = useGetMe();
@@ -69,4 +69,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default SettingForm;

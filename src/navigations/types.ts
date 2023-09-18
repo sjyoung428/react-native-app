@@ -3,9 +3,8 @@ export type RootStackParamList = {
 };
 
 export type BottomTabParamList = {
-  Home: undefined;
+  Feed: undefined;
   Profile: undefined;
-  Posts: undefined;
-  Notification: undefined;
+  Timer: undefined;
   Setting: undefined;
 };

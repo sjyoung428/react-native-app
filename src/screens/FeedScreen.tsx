@@ -3,7 +3,7 @@ import GlobalStyles from "@/utils/styles/GlobalStyles";
 import { View } from "react-native";
 import useFeed from "@/hooks/queries/feed/useFeed";
 
-const HomeScreen = () => {
+const FeedScreen = () => {
   const { mutate } = useFeed({
     onSuccess: (data) => {
       console.log(data);
@@ -20,4 +20,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default FeedScreen;

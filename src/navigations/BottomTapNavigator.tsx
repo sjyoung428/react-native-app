@@ -1,27 +1,20 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "@/screens/HomeScreen";
-import NotificationScreen from "@/screens/NotificationScreen";
+import FeedScreen from "@/screens/FeedScreen";
 import ProfileScreen from "@/screens/ProfileScreen";
 import SettingScreen from "@/screens/SettingScreen";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import type { BottomTabParamList } from "./types";
-import PostListScreen from "@/screens/PostListScreen";
+import TimerScreen from "@/screens/TimerScreen";
 
 const Tap = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomTapNavigator = () => {
   return (
-    <Tap.Navigator>
-      <Tap.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="home" color={color} size={size} />
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
+    <Tap.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Tap.Screen
         name="Profile"
         component={ProfileScreen}
@@ -33,21 +26,21 @@ const BottomTapNavigator = () => {
         }}
       />
       <Tap.Screen
-        name="Posts"
-        component={PostListScreen}
+        name="Timer"
+        component={TimerScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="post" color={color} size={size} />
+            <Icon name="timer" color={color} size={size} />
           ),
           tabBarShowLabel: false,
         }}
       />
       <Tap.Screen
-        name="Notification"
-        component={NotificationScreen}
+        name="Feed"
+        component={FeedScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="bell" color={color} size={size} />
+            <Icon name="bone" color={color} size={size} />
           ),
           tabBarShowLabel: false,
         }}

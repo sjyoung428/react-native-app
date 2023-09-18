@@ -1,13 +1,7 @@
-import GlobalStyles from "@/utils/styles/GlobalStyles";
-import { Text } from "react-native-paper";
-import { View } from "react-native";
+import SettingForm from "@/components/SettingForm";
 
 const SettingScreen = () => {
-  return (
-    <View style={GlobalStyles.container}>
-      <Text>Setting Screen</Text>
-    </View>
-  );
+  return <SettingForm />;
 };
 
 export default SettingScreen;

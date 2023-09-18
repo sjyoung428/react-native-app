@@ -14,4 +14,11 @@ export const UserAPI = {
     });
     return res.data;
   },
+  uploadAvatar: async (formData: FormData) => {
+    const res: AxiosResponse<User> = await api.post(
+      "/users/me/avatar",
+      formData
+    );
+    return res.data;
+  },
 };

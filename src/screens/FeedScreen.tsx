@@ -2,20 +2,33 @@ import { TouchableButton } from "@/components/common";
 import GlobalStyles from "@/utils/styles/GlobalStyles";
 import { View } from "react-native";
 import useFeed from "@/hooks/queries/feed/useFeed";
+import Countdown from "@/components/common/Countdown";
+import { useTimerStore } from "@/store/useTimerStore";
 
 const FeedScreen = () => {
-  const { mutate } = useFeed({
-    onSuccess: (data) => {
-      console.log(data);
-    },
-  });
+  const { time, setTime } = useTimerStore();
 
-  const onPress = () => {
+  const { mutate } = useFeed();
+
+  const onFeed = () => {
     mutate();
   };
   return (
     <View style={GlobalStyles.container}>
-      <TouchableButton onPress={onPress}>사료 사출 버튼</TouchableButton>
+      <Countdown
+        time={time}
+        onFinish={() => {
+          // onFeed();
+        }}
+      />
+      <TouchableButton
+        onPress={() => {
+          onFeed();
+          setTime(10);
+        }}
+      >
+        사료 사출 버튼
+      </TouchableButton>
     </View>
   );
 };

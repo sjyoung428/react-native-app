@@ -1,4 +1,5 @@
 import { TouchableButton } from "@/components/common";
+import useUploadAvatar from "@/hooks/queries/user/useUploadAvatar";
 import GlobalStyles from "@/utils/styles/GlobalStyles";
 
 import * as ImagePicker from "expo-image-picker";
@@ -6,6 +7,11 @@ import { useState } from "react";
 import { Image, View } from "react-native";
 
 const ProfileScreen = () => {
+  const { mutate } = useUploadAvatar({
+    onSuccess: () => {
+      console.log("성공");
+    },
+  });
   const [image, setImage] = useState<string | null>(null);
 
   const pickImage = async () => {
@@ -19,18 +25,33 @@ const ProfileScreen = () => {
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
+
+      const formatData = new FormData();
+      formatData.append("avatar", result.assets[0].uri);
+      mutate(formatData);
     }
   };
 
   return (
     <View style={GlobalStyles.container}>
-      {image && (
+      {!image ? (
+        <View
+          style={{
+            width: 200,
+            height: 200,
+            borderRadius: 100,
+            backgroundColor: "gray",
+          }}
+        />
+      ) : (
         <Image
           source={{ uri: image }}
           style={{ width: 200, height: 200, borderRadius: 100 }}
         />
       )}
-      <TouchableButton onPress={pickImage}>이미지 업로드</TouchableButton>
+      <TouchableButton style={{ marginTop: 20 }} onPress={pickImage}>
+        이미지 업로드
+      </TouchableButton>
     </View>
   );
 };

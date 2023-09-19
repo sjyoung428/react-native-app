@@ -24,7 +24,6 @@ const FeedScreen = () => {
       <TouchableButton
         onPress={() => {
           onFeed();
-          setTime(10);
         }}
       >
         사료 사출 버튼
